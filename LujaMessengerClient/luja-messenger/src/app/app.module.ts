@@ -15,8 +15,7 @@ import {
 import { AuthInterceptor } from './http-interceptors/auth-interceptor';
 import { AuthorizationGuard } from './auth-guards/authorization-guard';
 // export function loadConfig(oidcConfigService: OidcConfigService) {
-//   console.log('APP_INITIALIZER STARTING');
-//   return () => oidcConfigService.load_using_stsServer('https://localhost:44383');
+//   return () => oidcConfigService.load_using_stsServer(environment.oidc_stsServer);
 // }
 
 @NgModule({
@@ -47,7 +46,7 @@ export class AppModule {
   ) {
     const openIDImplicitFlowConfiguration = new OpenIDImplicitFlowConfiguration();
     openIDImplicitFlowConfiguration.stsServer = 'https://localhost:44383';
-    openIDImplicitFlowConfiguration.redirect_url = 'https://localhost:44383';
+    openIDImplicitFlowConfiguration.redirect_url = 'https://localhost:4200';
     // The Client MUST validate that the aud (audience) Claim contains its client_id
     // value registered at the Issuer identified by the iss (issuer) Claim as an audience.
     // The ID Token MUST be rejected if the ID Token does not list the Client as a valid
@@ -55,10 +54,10 @@ export class AppModule {
     openIDImplicitFlowConfiguration.client_id = 'messenger-client';
     openIDImplicitFlowConfiguration.response_type = 'id_token token';
     openIDImplicitFlowConfiguration.scope = 'openid profile messenger-api';
-    openIDImplicitFlowConfiguration.post_logout_redirect_uri = 'https://localhost:44383/Unauthorized';
+    openIDImplicitFlowConfiguration.post_logout_redirect_uri = 'https://localhost:4200';
     openIDImplicitFlowConfiguration.start_checksession = false;
     openIDImplicitFlowConfiguration.silent_renew = true;
-    openIDImplicitFlowConfiguration.silent_renew_url = 'https://localhost:44383/silent-renew.html';
+    // openIDImplicitFlowConfiguration.silent_renew_url = 'https://localhost:44383/silent-renew.html';
     openIDImplicitFlowConfiguration.post_login_route = '/home';
     // HTTP 403
     openIDImplicitFlowConfiguration.forbidden_route = '/Forbidden';

@@ -48,11 +48,15 @@ namespace LujaAppsIdentity
                     ClientId = "messenger-client",
                     ClientName = "Luja Messenger Client",
                     AllowedGrantTypes = GrantTypes.Implicit,
+                    AccessTokenType = AccessTokenType.Jwt,
+                    RequireClientSecret = false,
                     AllowAccessTokensViaBrowser = true,
 
-                    RedirectUris =           { "http://localhost:4200/callback.html" },
-                    PostLogoutRedirectUris = { "http://localhost:4200/index.html" },
-                    AllowedCorsOrigins =     { "http://localhost:4200" },
+                    RedirectUris =           { "https://localhost:4200" },
+                    PostLogoutRedirectUris = { "https://localhost:4200" },
+                    AllowedCorsOrigins =     { "https://localhost:4200" },
+                    RequireConsent = false,
+                    AllowOfflineAccess = true,
 
                     AllowedScopes =
                     {
