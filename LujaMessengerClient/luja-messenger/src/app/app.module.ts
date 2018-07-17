@@ -17,6 +17,8 @@ import { AuthorizationGuard } from './auth-guards/authorization-guard';
 // export function loadConfig(oidcConfigService: OidcConfigService) {
 //   return () => oidcConfigService.load_using_stsServer(environment.oidc_stsServer);
 // }
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { AuthorizationGuard } from './auth-guards/authorization-guard';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
     AuthModule.forRoot()
   ],
   providers: [
